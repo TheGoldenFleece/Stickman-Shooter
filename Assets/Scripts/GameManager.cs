@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float cutsceneDuration = 2.0f;
     [SerializeField] private bool isBonusLevel;
+    [SerializeField] private bool isDemo;
     public bool IsBonusLevel => isBonusLevel;
+    public bool IsDemo => isDemo;
     public enum State {
         Idle,
         RunStarted,

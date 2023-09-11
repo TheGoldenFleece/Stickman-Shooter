@@ -33,15 +33,12 @@ public class Enemy : MonoBehaviour
             maxHP = bonusLevelSO.maxEnemyHP;
             killAward = maxHP;
         }
-
         else {
-            int minHP = gameplaySettingsSO.minEnemyHP * (int)DataSaver.Instance.Get(DataSaver.Data.CurrentLevel);
-            int maxHP = gameplaySettingsSO.maxEnemyHP * (int)DataSaver.Instance.Get(DataSaver.Data.CurrentLevel);
+            int minEnemyHP = gameplaySettingsSO.minEnemyHP * (int)DataSaver.Instance.Get(DataSaver.Data.CurrentLevel);
+            int maxEnemyHP = gameplaySettingsSO.maxEnemyHP * (int)DataSaver.Instance.Get(DataSaver.Data.CurrentLevel);
 
-
-            maxHP = UnityEngine.Random.Range(minHP, maxHP + addedExclusive);
+            maxHP = UnityEngine.Random.Range(minEnemyHP, maxEnemyHP + addedExclusive);
             killAward = maxHP;
-
         }
 
         HP = maxHP;

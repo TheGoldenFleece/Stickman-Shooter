@@ -32,12 +32,12 @@ public class DataSaver : MonoBehaviour
         levelMoney = 0;
 
         StickmanDataPath = Path.Combine(Application.persistentDataPath, "StickmanData.json");
+        
         if (GameManager.Instance.IsBonusLevel) {
             dataJson = new DataJson();
 
             dataJson.money = bonusLevelSO.money;
             dataJson.fireRate = bonusLevelSO.fireRate;
-            dataJson.currentLevel = bonusLevelSO.currentLevel;
             dataJson.damage = bonusLevelSO.damage;
         }
         else {
@@ -52,6 +52,7 @@ public class DataSaver : MonoBehaviour
 
     private void GameManager_OnPassLevel(object sender, System.EventArgs e) {
         dataJson.currentLevel++;
+
         if (GameManager.Instance.IsBonusLevel) return;
 
         File.WriteAllText(StickmanDataPath, JsonUtility.ToJson(dataJson));

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MainMenuUI : MonoBehaviour
 {
     private const string GAME_SCENE = "Game";
-    private const string BONUS_SCENE = "BOSUN";
+    private const string BONUS_SCENE = "BONUS";
 
     [SerializeField] private Button startButton;
     [SerializeField] private Button exitButton;

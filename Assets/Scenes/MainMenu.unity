@@ -849,6 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneDuration: 2
   isBonusLevel: 0
+  isDemo: 1
 --- !u!1 &499960833
 GameObject:
   m_ObjectHideFlags: 0

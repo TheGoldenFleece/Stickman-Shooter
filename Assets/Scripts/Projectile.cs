@@ -19,7 +19,13 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveForward = speed * Time.deltaTime * PlayerController.Instance.transform.forward;
+        Vector3 moveForward;
+        if (GameManager.Instance.IsDemo) {
+            moveForward = speed* Time.deltaTime * transform.forward;
+        }
+        else {
+            moveForward = speed * Time.deltaTime * PlayerController.Instance.transform.forward;
+        }
         transform.Translate(moveForward);
     }
 }
