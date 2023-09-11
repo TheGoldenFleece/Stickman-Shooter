@@ -9,11 +9,9 @@ public class Projectile : MonoBehaviour
 
     private float speed;
 
-    private void OnEnable() {
-        Destroy(gameObject, timeToLive);
-    }
-
     private void Start() {
+        Destroy(gameObject, timeToLive);
+
         speed = gameplaySO.playerSpeed * multiplierSpeed;
     }
 

@@ -12,12 +12,6 @@ public class Enemy : MonoBehaviour
         public int HP;
     }
 
-    protected void OnHPChanged_Invoker(int newHP) {
-        OnHPChanged?.Invoke(this, new OnHPChangedEventArgs() {
-            HP = newHP
-        });
-    }
-
     [SerializeField] private Transform hitEffectTransformPrefab;
     [SerializeField] protected GameplaySettingsSO gameplaySettingsSO;
     [SerializeField] protected GameplaySettingsSO bonusLevelSO;
@@ -52,10 +46,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (!other.CompareTag(PROJECTILE_TAG)) return;
+        
+        Destroy(other.gameObject);
 
         BeDamaged();
-
-        Destroy(other.gameObject);
 
         if (HP <= 0) {
             DataSaver.Instance.Save(DataSaver.Data.Money, killAward);

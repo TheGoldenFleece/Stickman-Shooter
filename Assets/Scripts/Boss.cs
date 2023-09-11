@@ -20,9 +20,8 @@ public class Boss : Enemy
     private void OnTriggerEnter(Collider other) {
         if (!other.CompareTag(PROJECTILE_TAG)) return;
 
-        BeDamaged();
-
         Destroy(other.gameObject);
+        base.BeDamaged();
 
         if (HP <= 0) {
             DataSaver.Instance.Save(DataSaver.Data.Money, killAward);
